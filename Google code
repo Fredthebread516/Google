@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Website Viewer</title>
+    <style>
+      /* Set the size of the box */
+      #box {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+      }
+      
+      /* Set the size of the embedded website */
+      #website {
+        width: 1920px;
+        height: 1080px;
+        transform: scale(0.5625);
+        transform-origin: top left;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" id="url" placeholder="Enter website URL" />
+    <button onclick="loadWebsite()">Load</button>
+    <div id="box"></div>
+
+    <script>
+      function loadWebsite() {
+        var url = document.getElementById("url").value;
+        var iframe = document.createElement("iframe");
+        iframe.setAttribute("src", url);
+        iframe.setAttribute("id", "website");
+        document.getElementById("box").appendChild(iframe);
+      }
+    </script>
+  </body>
+</html>
